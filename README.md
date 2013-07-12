@@ -10,12 +10,13 @@ Supports the following minimal set: Tables, Views, Primary Key, Varchar, Int, Da
   
 Each key is a table or view name.  In a table, there is an array of fields.     
 Before the name, a symbol specifies the data type:  # = int, @ = DateTime, and nothing means a VARCHAR(255).    
-After the name, ? means NOT NULL, + means AUTO-INCREMENT.
+After the name, ? means NOT NULL, + means AUTO-INCREMENT.  The first field is the primary key.    
+For a view, the value is the SQL used to generate the view.
 
 Schema.json
 ````
 {
   "Person": ['#id', 'Name?', 'EmplNo+', @DateTime],
-	"MyView": 'select Name from Person'
+  "MyView": 'select Name from Person'
 }
 ````
