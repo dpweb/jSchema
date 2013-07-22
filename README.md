@@ -1,22 +1,30 @@
 jSchema
 =======
 
-Minimal JSON representation of SQL table definitions
+Minimal JSON representation of SQL table definitions and/or view definitions    
 
-jSchema is a JSON formatted description of table defs in a database.  The intention is to provide a small easy to
-read way to understand the schema of a SQL database.    
+jSchema is a way to express a set of table definitions in a database or other dataset     
 
-Supports the following minimal set: Tables, Views, Primary Key, Varchar, Int, DateTime, and NOT NULL.    
-  
-Each key is a table or view name.  In a table, there is an array of fields.     
-Before the name, a symbol specifies the data type:  # = int, @ = DateTime, and nothing means a VARCHAR(255).    
-After the name, ? means NOT NULL, + means AUTO-INCREMENT.  The first field is the primary key.    
+For table definitions, supports Primary Key, Varchar, Int, DateTime, and NOT NULL for fields.    
+For views, supports SQL statements.
+
+###Specification
+####1.0
+Each key is a table or view name.  
+####1.1
+In a table, there is an array of fields. 
+####1.2
+Before the name, a symbol specifies the data type:  # = int, @ = DateTime, and nothing means a VARCHAR(255).  
+####1.3
+After the name, ? means NOT NULL, + means AUTO-INCREMENT.  The first field is the primary key.   
+####1.4
 For a view, the value is the SQL used to generate the view.
 
-Schema.json
+<database_name>.json
 ````
 {
   "Person": ['#id', 'Name?', 'EmplNo+', @DateTime],
   "MyView": 'select Name from Person'
 }
 ````
+Todo: Reference code for creating viewing a database.
