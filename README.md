@@ -1,7 +1,7 @@
 jSchema
 =======
 
-Minimal JSON representation of SQL table definitions and/or view definitions    
+Minimal JSON representation of SQL database table definitions and/or view definitions    
 
 jSchema is a way to express a set of table definitions in a database or other dataset     
 
@@ -14,7 +14,14 @@ Each key is a table or view name.
 ####1.1
 In a table, there is an array of fields. 
 ####1.2
-Before the name, a symbol specifies the data type:  # = int, @ = DateTime, and nothing means a VARCHAR(255).  
+Before the name, a symbol specifies the data type:    
+    
+<none> = Text/String/Varchar    
+# = Integer    
+@ = DateTime    
+& = Real/Floating    
+~ = Blob    
+    
 ####1.3
 After the name, ? means NOT NULL, + means AUTO-INCREMENT.  The first field is the primary key.   
 ####1.4
