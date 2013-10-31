@@ -16,7 +16,7 @@ In a table, there is an array of fields.
 ####1.2
 Before the name, a symbol specifies the data type:    
     
-<none> = Text/String/Varchar    
+Text/String/Varchar
 # = Integer    
 @ = DateTime    
 & = Real/Floating    
