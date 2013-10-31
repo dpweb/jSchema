@@ -16,12 +16,7 @@ In a table, there is an array of fields.
 ####1.2
 Before the name, a symbol specifies the data type:    
     
-String
-#= Integer    
-@ = DateTime    
-& = Real/Floating    
-~ = Blob    
-    
+String (nothing), Integer #, DateTime @, Floating &, Blob ~
 ####1.3
 After the name, ? means NOT NULL, + means AUTO-INCREMENT.  The first field is the primary key.   
 ####1.4
@@ -34,4 +29,8 @@ For a view, the value is the SQL used to generate the view.
   "MyView": 'select Name from Person'
 }
 ````
-Todo: Reference code for creating viewing a database.
+
+Generate the database using makedb.js, and the type of database to create:
+````
+$ node makedb sqlite3
+````
