@@ -32,5 +32,5 @@ For a view, the value is the SQL used to generate the view.
 
 Generate the database using makedb.js, and the type of database to create:
 ````
-$ node makedb sqlite3
+$ node makedb sqlite3 test_schema.json
 ````
