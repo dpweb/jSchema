@@ -1,6 +1,57 @@
 {
-  "People": ["id", "LastName", "#Age", "~Picture"],
-  "Locations": [],
-  "Organizations": [],
-  "Assets": []
+  "People": [
+      "id", 
+      "LastName", 
+      "FirstName", 
+      "#Age", 
+      "~Picture"
+  ],
+  "PO": [
+  		"id",
+  		"Number",
+  		"Supplier",
+  		"PurchaseDate"
+  ],
+  "POLine": [
+  		"id",
+  		"PO",
+  		"Quantity",
+  		"PurchasedBy",
+  		"PurchasedDate"
+  ],
+  "Assets": [
+  		"POLine",
+  		"CostCenter",
+  		"Project"
+  ],
+  "Models": [
+      "id",
+      "Name"
+  ],
+  "Computers": [
+      "id",
+  		"HostName",
+  		"FQDN",
+  		"IPAddress"
+  ],
+  "CIs": [
+  		"id",
+  		"Status",
+  		"SupportGroup",
+  		"Model",
+  		"AssetTag",
+  		"SerialNumber",
+  		"Location",
+  		"Computer",
+  		"Description",
+  		"ServiceLevel",
+  		"Environment",
+  		"User",
+  		"RetireDate"
+  ],
+  "funcs": [
+      "Name",
+      "Sql"
+  ],
+  "populateCIs" : "INSERT INTO funcs (Name, Sql) VALUES ('NewCI','INSERT INTO CIs (id, Status) VALUES (?, ?);')"
 }

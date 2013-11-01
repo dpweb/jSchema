@@ -7,13 +7,13 @@ console.log('db type is', dbtype);
 makeSQLite3(schema_fn);
 
 function makeSQLite3(sfn){
-	var schema = require(sfn),
-		sqlite = require('sqlite'),
-		db = new sqlite.Database();
+	var schema = require('./'+sfn),
+		sqlite = require('node-sqlite-purejs');
 
-	db.open(sfn.replace(/json/, 'db'), function(e){
+	sqlite.open(sfn.replace(/json$/, 'db'), {}, function(e, db){
+		if(e) throw e;
 		for(item in schema){
-			if(typeof item !== 'string'){
+			if(typeof schema[item] !== 'string'){
 				// table
 				var fields = schema[item],
 					flds = [];
@@ -23,11 +23,15 @@ function makeSQLite3(sfn){
 					if(name[0] == '~') name = name.replace('~', '') + ' BLOB';
 					flds.push(name);
 				}
-				console.log('CREATE TABLE IF NOT EXISTS ' + item + ' (' + flds.join(',') + ')');
+				var sql = 'CREATE TABLE IF NOT EXISTS ' + item + ' (' + flds.join(',') + ')';
+				console.log(sql);
+				db.exec(sql);
 			} else {
-				// view
-				console.log('CREATE VIEW ' + item + ' AS ' + schema[item]);
+				// sql
+				console.log(schema[item]);
+				db.exec(schema[item], console.log);
 			}
 		}
+
 	});
 }
