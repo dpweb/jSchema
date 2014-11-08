@@ -1,0 +1,64 @@
+{
+  "Person": {
+      "id": "*", 
+      "LastName": "", 
+      "FirstName": "", 
+      "Age": "#", 
+      "Picture": "~"
+  },
+  "PO": {
+  		"id": "*",
+  		"Number": "",
+  		"Supplier": "",
+  		"PurchaseDate": ""
+  },
+  "POLine": [
+  		"id*",
+  		"PO->PO",
+  		"Quantity#",
+  		"PurchasedBy->Person",
+  		"PurchasedDate"
+  ],
+  "Asset": [
+      "id*",
+  		"POLine->POLine",
+  		"CostCenter->CostCenter",
+  		"Project->Project"
+  ],
+  "Models": [
+      "id*",
+      "Name"
+  ],
+  "Computers": [
+      "id*",
+  		"HostName",
+  		"FQDN",
+  		"IPAddress"
+  ],
+  "CIStatus": [
+
+  ],
+  "CIs": [
+  		"id*",
+      "Asset->Asset"
+  		"Status->CIStatus",
+  		"SupportGroup",
+  		"Model",
+  		"AssetTag",
+  		"SerialNumber",
+  		"Location",
+  		"Computer",
+  		"Description",
+  		"ServiceLevel",
+  		"Environment",
+  		"User",
+  		"RetireDate"
+  ],
+
+  "@functions": [
+      "@id",
+      "name",
+      "params"
+  ]
+
+}

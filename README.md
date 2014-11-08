@@ -20,17 +20,3 @@ The descriptior is optional, if you want to enforce data type consistency.
 ####Blob ~
 ####Unique id *
 ####Reference (to anohter table) -> <tablename>   
-
-####1.2
-@functions is a special key, used to hold procedures. Each key is a function name, followed by instructions for the database.
-````
-  "@functions": {
-     "populateCIs" : {
-        "sql": "INSERT INTO funcs (Name, Sql) VALUES ('NewCI','INSERT INTO CIs (id, Status) VALUES (?, ?);')"
-      }
-  }
-````
-Generate the database using makedb.js (SQLite is supported), and the type of database to create:
-````
-$ node makedb sqlite3 test_schema.json
-````
